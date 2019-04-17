@@ -1,0 +1,70 @@
+
+    <!-- contact-detail.comp.html starts -->
+    <div class="row">
+      <div class="card col-md-12" *ngIf="contactData">
+        <div class="card-body">
+          <h5 class="card-title">{{ contactData.username }} </h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+            card's content.</p>
+          <p>Phone: {{ contactData.phone }}</p>
+          <p>Email: {{ contactData.email }}</p>
+          <button type="button" class="btn btn-primary" (click)="launchEditModal()">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+            aria-hidden="true" *ngIf="editableContactData">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Updae Contact</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+
+                      <form>
+                        <div class="form-group row">
+                          <label for="staticEmail" class="col-sm-3 col-form-label">Name</label>
+                          <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="Enter username" 
+                                   name="username" [(ngModel)]="editableContactData.username"> 
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+                          <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="Enter Phone" 
+                            [(ngModel)]="editableContactData.phone" name="phone">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-md-9">
+                            <input type="email" class="form-control" placeholder="Enter Email" 
+                            [(ngModel)]="editableContactData.email"  name="email">
+                          </div>
+                        </div>
+
+                      </form>
+
+                      <div class="alert alert-success" *ngIf="isUpdated">
+                        Your contact has been updated. This modal will close in 3 seconds
+                      </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" (click)="updateHandler()">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <!-- contact-detail.comp.html ends -->

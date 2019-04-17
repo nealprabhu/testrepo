@@ -1,0 +1,25 @@
+<!-- contacts.comp.html starts -->
+<div class="container">
+  <div class="row">
+    <section class="col-sm-9 main-section ">
+      <div class="jumbotron">
+        <h1 class="display-4">Contact Manager App!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+          featured content or information.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" routerLink="/contacts/new" role="button">Create New Contact</a>
+      </div>
+    </section>
+
+    <div class="card col-md-4" *ngFor="let contact of contactList">
+      <div class="card-body">
+        <h5 class="card-title">{{ contact.username }} </h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+          card's content.</p>
+        <a routerLink="/contacts/{{contact.id}}" class="link">View Details</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- contacts.comp.html ends -->
